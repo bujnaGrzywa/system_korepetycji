@@ -16,7 +16,7 @@ const types = [
 const conditions = [
   { id: 1, name: "bardzo zniszczona" },
   { id: 2, name: "troche zniszczona" },
-  { id: 3, name: "uywana ale nie zniszczona" },
+  { id: 3, name: "używana ale nie zniszczona" },
   { id: 4, name: "lekko uzywana" },
   { id: 5, name: "nowa" },
 ];
@@ -74,7 +74,6 @@ const AddResource = ({ firebase, authUser }) => {
           required
         />
       </div>
-
       <div className="mt-3">
         <div className="select mr-2">
           <select className="select" name="category">
