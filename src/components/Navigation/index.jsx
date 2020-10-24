@@ -46,7 +46,7 @@ const NavigationAuth = () => {
           className={`navbar-menu ${isActive ? "is-active" : ""}`}
         >
           <div className="navbar-start">
-            <Link className="navbar-item" to={ROUTES.RESOURCES}>'
+            <Link className="navbar-item" to={ROUTES.RESOURCES}>
               Dodane ogloszenie
             </Link>
 
