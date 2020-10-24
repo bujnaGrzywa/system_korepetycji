@@ -92,10 +92,10 @@ const Landing = ({ firebase, authUser }) => {
       ))}
 
       <div>
-        <button className="button" onClick={prev}>
+        <button className="button is-outlined is-primary" onClick={prev}>
           Poprzednia strona
         </button>
-        <button className="button ml-2" onClick={next}>
+        <button className="button ml-2 is-outlined is-primary" onClick={next}>
           Kolejna strona
         </button>
       </div>

@@ -19,11 +19,15 @@ const NavigationAuth = () => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <nav className="navbar mb-4" role="navigation" aria-label="main navigation">
+    <nav
+      className="navbar mb-4 is-dark"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="container">
         <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
-            KIERMASZ
+          <Link className="navbar-item has-text-weight-semibold" to="/">
+            SYSTEM KOREPETYCJI
           </Link>
 
           <span
@@ -44,7 +48,7 @@ const NavigationAuth = () => {
         >
           <div className="navbar-start">
             <Link className="navbar-item" to={ROUTES.RESOURCES}>
-              Dodane ksiązki
+              Dodane ogloszenie
             </Link>
 
             <Link className="navbar-item" to={ROUTES.RESERVED_BOOKS}>
@@ -55,8 +59,11 @@ const NavigationAuth = () => {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <Link className="button is-primary" to={ROUTES.ADD_RESOURCE}>
-                  Dodaj ksiązke
+                <Link
+                  className="button is-primary has-text-white"
+                  to={ROUTES.ADD_RESOURCE}
+                >
+                  Dodaj ogloszenie
                 </Link>
                 <SignOutButton />
               </div>

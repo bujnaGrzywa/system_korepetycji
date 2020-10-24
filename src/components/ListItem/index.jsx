@@ -1,7 +1,7 @@
 import React from "react";
 
 const ListItem = ({ book, onHandle, label }) => (
-  <div className="box">
+  <div className="box has-background-grey">
     <div className="card">
       <div className="card-content">
         <div className="media">
