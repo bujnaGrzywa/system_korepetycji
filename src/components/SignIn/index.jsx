@@ -55,7 +55,7 @@ class SignInFormBase extends Component {
       <div className="box mt-6">
         <form onSubmit={this.onSubmit}>
           <p className="is-4 title is-uppercase has-text-centered">
-            kiermasz książek
+            szkolne korepetycje
           </p>
 
           <div className="field">
