@@ -29,7 +29,6 @@ const NavigationAuth = () => {
           <Link className="navbar-item has-text-weight-semibold" to="/">
             SYSTEM KOREPETYCJI
           </Link>
-
           <span
             className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
             onClick={() => {
@@ -47,12 +46,12 @@ const NavigationAuth = () => {
           className={`navbar-menu ${isActive ? "is-active" : ""}`}
         >
           <div className="navbar-start">
-            <Link className="navbar-item" to={ROUTES.RESOURCES}>
+            <Link className="navbar-item" to={ROUTES.RESOURCES}>'
               Dodane ogloszenie
             </Link>
 
             <Link className="navbar-item" to={ROUTES.RESERVED_BOOKS}>
-              Zarezerwowane ksiązki
+              Zarezerwowane ogłoszenia
             </Link>
           </div>
 
