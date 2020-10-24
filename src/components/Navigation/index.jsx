@@ -23,7 +23,7 @@ const NavigationAuth = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
-            KIERMASZ
+            Ogłoszenia
           </Link>
 
           <span
@@ -44,11 +44,11 @@ const NavigationAuth = () => {
         >
           <div className="navbar-start">
             <Link className="navbar-item" to={ROUTES.RESOURCES}>
-              Dodane ksiązki
+              Dodane ogłoszenie
             </Link>
 
             <Link className="navbar-item" to={ROUTES.RESERVED_BOOKS}>
-              Zarezerwowane ksiązki
+              Zarezerwowane ogłoszenia
             </Link>
           </div>
 
@@ -56,7 +56,7 @@ const NavigationAuth = () => {
             <div className="navbar-item">
               <div className="buttons">
                 <Link className="button is-primary" to={ROUTES.ADD_RESOURCE}>
-                  Dodaj ksiązke
+                  Dodaj ogłoszenie
                 </Link>
                 <SignOutButton />
               </div>
