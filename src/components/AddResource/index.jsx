@@ -84,26 +84,6 @@ const AddResource = ({ firebase, authUser }) => {
             ))}
           </select>
         </div>
-
-        <div className="select mr-2">
-          <select name="condition">
-            {conditions.map((condition) => (
-              <option key={condition.id} value={condition.name}>
-                {condition.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="select">
-          <select name="type">
-            {types.map((type) => (
-              <option key={type.id} value={type.name}>
-                {type.name}
-              </option>
-            ))}
-          </select>
-        </div>
       </div>
 
       <div className="mt-3">
