@@ -9,9 +9,8 @@ const ListItem = ({ book, onHandle, label }) => (
             <p className="is-size-4 is-capitalized has-text-weight-semibold">
               {book.title}
             </p>
-            <p className="is-size-6">Stan: {book.condition}</p>
-            <p className="is-size-6">Poziom: {book.type}</p>
-            <p className="is-size-5">Cena: {book.price} PLN</p>
+            <p className="is-size-6">Data: {book.price} , {book.condition} , {book.type} </p>
+
           </div>
         </div>
 
@@ -30,8 +29,8 @@ const ListItem = ({ book, onHandle, label }) => (
             )}
           </div>
         ) : (
-          <p className="is-size-6">Kontakt: {book.email}</p>
-        )}
+            <p className="is-size-6">Kontakt: {book.email}</p>
+          )}
       </div>
     </div>
   </div>
