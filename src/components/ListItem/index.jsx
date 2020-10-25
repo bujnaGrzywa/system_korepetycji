@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListItem = ({ book, onHandle, label }) => {
+const ListItem = ({ lesson, onHandle, label }) => {
   return (
     <div className="box has-background-grey">
       <div className="card">
@@ -8,24 +8,24 @@ const ListItem = ({ book, onHandle, label }) => {
           <div className="media">
             <div className="media-content">
               <p className="is-size-4 is-capitalized has-text-weight-semibold">
-                {book.title}
+                {lesson.title}
               </p>
-              <p className="is-size-6">Kategoria: {book.category}</p>
-              <p className="is-size-5">Cena: {book.price} PLN</p>
+              <p className="is-size-6">Kategoria: {lesson.category}</p>
+              <p className="is-size-5">Cena: {lesson.price} PLN</p>
               <p className="is-size-6">
-                Proponowana data: {book.startDate} - {book.endDate}
+                Proponowana data: {lesson.startDate} - {lesson.endDate}
               </p>
             </div>
           </div>
 
           {onHandle ? (
             <div className="content">
-              <div className="mb-2">Opis: {book.description}</div>
+              <div className="mb-2">Opis: {lesson.description}</div>
 
               {label && (
                 <button
                   className="button is-primary"
-                  disabled={book?.reserved}
+                  disabled={lesson?.reserved}
                   onClick={() => onHandle()}
                 >
                   {label}
@@ -33,7 +33,7 @@ const ListItem = ({ book, onHandle, label }) => {
               )}
             </div>
           ) : (
-            <p className="is-size-6">Kontakt: {book.email}</p>
+            <p className="is-size-6">Kontakt: {lesson.email}</p>
           )}
         </div>
       </div>

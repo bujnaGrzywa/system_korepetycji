@@ -30,16 +30,16 @@ class Firebase {
 
   // *** User API ***
 
-  selectBooks = () => this.db.ref("books");
+  selectLessons = () => this.db.ref("lessons");
 
-  selectBooksByUser = (uid) => this.db.ref(`books/${uid}`);
+  selectLessonsByUser = (uid) => this.db.ref(`lessons/${uid}`);
 
-  selectBook = (path) => this.db.ref(`books/${path}`);
+  selectLesson = (path) => this.db.ref(`lessons/${path}`);
 
-  selectReservedBooks = (uid) => this.db.ref(`reserved-books/${uid}`);
+  selectReservedLessons = (uid) => this.db.ref(`reserved-lessons/${uid}`);
 
-  selectReservedBook = (uid, book_id) =>
-    this.db.ref(`reserved-books/${uid}/${book_id}`);
+  selectReservedLesson = (uid, lesson_id) =>
+    this.db.ref(`reserved-lessons/${uid}/${lesson_id}`);
 }
 
 export default Firebase;

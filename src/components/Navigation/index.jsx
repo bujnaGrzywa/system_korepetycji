@@ -50,7 +50,7 @@ const NavigationAuth = () => {
               Dodane ogloszenie
             </Link>
 
-            <Link className="navbar-item" to={ROUTES.RESERVED_BOOKS}>
+            <Link className="navbar-item" to={ROUTES.RESERVED_LESSONS}>
               Zarezerwowane ogłoszenia
             </Link>
           </div>

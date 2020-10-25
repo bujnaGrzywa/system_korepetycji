@@ -9,52 +9,52 @@ import { LoadingSpinner } from "../LoadingSpinner";
 import usePagination from "../../utils/pagination";
 
 const Landing = ({ firebase, authUser }) => {
-  const [selectedBookIndex, setSelectedBookIndex] = useState({});
+  const [selectedLessonIndex, setSelectedLessonIndex] = useState({});
   const [isModalActive, setIsModalActive] = useState(false);
-  const [booksList, setBooksList] = useState([]);
+  const [lessonsList, setLessonsList] = useState([]);
   const [itemsPerPage] = useState(20);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { currentData, next, prev } = usePagination(booksList, itemsPerPage);
+  const { currentData, next, prev } = usePagination(lessonsList, itemsPerPage);
   const data = currentData();
 
   useEffect(() => {
-    firebase.selectBooks().on("value", (snapshot) => {
+    firebase.selectLessons().on("value", (snapshot) => {
       if (snapshot.val()) {
         setIsLoading(false);
       } else {
         setError("Brak zawartości do wyświetlenia");
         setIsLoading(false);
       }
-      const booksObj = snapshot.val();
-      const books = [];
-      if (booksObj) {
-        for (let user_id in booksObj) {
-          for (let book_id in booksObj[user_id]) {
-            booksObj[user_id][book_id]._id = book_id;
-            books.push(booksObj[user_id][book_id]);
+      const lessonsObj = snapshot.val();
+      const lessons = [];
+      if (lessonsObj) {
+        for (let user_id in lessonsObj) {
+          for (let lesson_id in lessonsObj[user_id]) {
+            lessonsObj[user_id][lesson_id]._id = lesson_id;
+            lessons.push(lessonsObj[user_id][lesson_id]);
           }
         }
-        setBooksList(books);
+        setLessonsList(lessons);
       }
     });
 
     return () => {
-      firebase.selectBooks().off();
+      firebase.selectLessons().off();
     };
   }, [firebase]);
 
-  const handleReserveClick = (book) => {
-    firebase.selectBook(`${book.uid}/${book._id}`).set({
-      ...book,
+  const handleReserveClick = (lesson) => {
+    firebase.selectLesson(`${lesson.uid}/${lesson._id}`).set({
+      ...lesson,
       reserved: true,
       reserved_uid: authUser.uid,
     });
 
     firebase
-      .selectReservedBook(authUser.uid, book._id)
-      .set({ book_uid: book.uid });
+      .selectReservedLesson(authUser.uid, lesson._id)
+      .set({ lesson_uid: lesson.uid });
   };
 
   if (isLoading) {
@@ -69,9 +69,9 @@ const Landing = ({ firebase, authUser }) => {
     <div>
       <Modal
         isActive={isModalActive}
-        selectedBook={data[selectedBookIndex]}
+        selectedLesson={data[selectedLessonIndex]}
         onSave={() => {
-          handleReserveClick(data[selectedBookIndex]);
+          handleReserveClick(data[selectedLessonIndex]);
           setIsModalActive(false);
         }}
         onCancel={() => {
@@ -79,12 +79,12 @@ const Landing = ({ firebase, authUser }) => {
         }}
       />
 
-      {data.map((book, index) => (
+      {data.map((lesson, index) => (
         <ListItem
-          key={book._id}
-          book={book}
+          key={lesson._id}
+          lesson={lesson}
           onHandle={() => {
-            setSelectedBookIndex(index);
+            setSelectedLessonIndex(index);
             setIsModalActive(true);
           }}
           label="Zarezerwuj"

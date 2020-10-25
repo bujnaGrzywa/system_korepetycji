@@ -8,7 +8,7 @@ import LandingPage from "../Landing";
 import SignInPage from "../SignIn";
 import AddResource from "../AddResource";
 import Resources from "../Resources";
-import ReservedBooks from "../ReservedBooks";
+import ReservedLessons from "../ReservedLessons";
 
 import * as ROUTES from "../../constants/routes";
 
@@ -47,7 +47,7 @@ class App extends Component {
           <Route path={ROUTES.SIGN_IN} component={SignInPage} />
           <Route path={ROUTES.ADD_RESOURCE} component={AddResource} />
           <Route path={ROUTES.RESOURCES} component={Resources} />
-          <Route path={ROUTES.RESERVED_BOOKS} component={ReservedBooks} />
+          <Route path={ROUTES.RESERVED_LESSONS} component={ReservedLessons} />
         </div>
       </Router>
     );

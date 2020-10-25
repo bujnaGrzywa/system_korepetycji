@@ -79,7 +79,7 @@ const AddResource = ({ firebase, authUser }) => {
     const uid = authUser.uid;
     const email = authUser.email;
 
-    const book = {
+    const lesson = {
       startDate,
       endDate,
       title,
@@ -92,7 +92,7 @@ const AddResource = ({ firebase, authUser }) => {
       category,
     };
 
-    firebase.selectBooksByUser(uid).push(book);
+    firebase.selectLessonsByUser(uid).push(lesson);
 
     event.target.reset();
   };

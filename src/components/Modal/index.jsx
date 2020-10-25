@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ isActive, onSave, onCancel, selectedBook }) => {
+const Modal = ({ isActive, onSave, onCancel, selectedLesson }) => {
   return (
     <div className={`modal ${isActive ? "is-active" : ""}`}>
       <div className="modal-background"></div>
@@ -20,7 +20,7 @@ const Modal = ({ isActive, onSave, onCancel, selectedBook }) => {
         <footer className="modal-card-foot">
           <button
             className="button is-primary"
-            disabled={selectedBook?.reserved}
+            disabled={selectedLesson?.reserved}
             onClick={() => {
               onSave();
             }}

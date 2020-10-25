@@ -7,22 +7,22 @@ import { ListItem } from "../ListItem";
 import { LoadingSpinner } from "../LoadingSpinner";
 
 const Resources = ({ firebase, authUser }) => {
-  const [booksList, setBooksList] = useState({});
+  const [lessonsList, setLessonsList] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    firebase.selectBooksByUser(authUser.uid).on("value", (snapshot) => {
+    firebase.selectLessonsByUser(authUser.uid).on("value", (snapshot) => {
       if (snapshot.val()) {
         setIsLoading(false);
       } else {
         setError("Brak zawartości do wyświetlenia");
         setIsLoading(false);
       }
-      setBooksList(snapshot.val());
+      setLessonsList(snapshot.val());
     });
     return () => {
-      firebase.selectBooksByUser(authUser.uid).off();
+      firebase.selectLessonsByUser(authUser.uid).off();
     };
   }, [authUser.uid, firebase]);
 
@@ -36,9 +36,9 @@ const Resources = ({ firebase, authUser }) => {
 
   return (
     <div>
-      {booksList
-        ? Object.keys(booksList).map((book, index) => (
-            <ListItem key={index} book={booksList[book]} />
+      {lessonsList
+        ? Object.keys(lessonsList).map((lesson, index) => (
+            <ListItem key={index} lesson={lessonsList[lesson]} />
           ))
         : null}
     </div>
