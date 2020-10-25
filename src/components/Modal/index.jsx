@@ -11,9 +11,9 @@ const Modal = ({ isActive, onSave, onCancel, selectedBook }) => {
         </header>
 
         <section className="modal-card-body">
-          Poprzez rezerwację książki zobowiązujesz się do jej kupna. Anulacja
+          Poprzez rezerwacje korepetycji  zobowiązujesz się do jej kupna. Anulacja
           rezerwacji nie będzie możliwa. Czy na pewno chcesz zarezerwować
-          książkę?
+          korepetycje?
         </section>
 
         <footer className="modal-card-foot">

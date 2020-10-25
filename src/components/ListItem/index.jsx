@@ -10,7 +10,9 @@ const ListItem = ({ book, onHandle, label }) => (
               {book.title}
             </p>
             <p className="is-size-6">Data: {book.price} , {book.condition} , {book.type} </p>
-
+            <p className="is-size-6">Cena: {book.cena} PLN </p>
+            <p className="is-size-6">Gmail: {book.poczta} </p>
+            <p className="is-size-6">Klasa: {book.kalasa} </p>
           </div>
         </div>
 

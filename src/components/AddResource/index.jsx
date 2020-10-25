@@ -63,6 +63,8 @@ const conditions = [
 ];
 
 
+
+
 const AddResource = ({ firebase, authUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -71,6 +73,9 @@ const AddResource = ({ firebase, authUser }) => {
     const category_id = data.get("category");
     const condition = data.get("condition");
     const price = data.get("price");
+    const klasa = data.get("klasa");
+    const cena = data.get("cena");
+    const poczta = data.get("poczta");
     const description = data.get("description");
     const type = data.get("type");
     const uid = authUser.uid;
@@ -83,6 +88,9 @@ const AddResource = ({ firebase, authUser }) => {
       reserved: false,
       uid,
       price,
+      klasa,
+      cena,
+      poczta,
       condition,
       email,
       reserved_uid: null,
@@ -110,9 +118,23 @@ const AddResource = ({ firebase, authUser }) => {
         </div>
         <input
           className="input"
-          placeholder="Cena"
+          placeholder="Cena max 20zł"
           type="number"
-          name="price"
+          name="cena"
+          required
+        />
+        <input
+          className="input"
+          placeholder="Gmail"
+          type="email"
+          name="poczta"
+          required
+        />
+        <input
+          className="input"
+          placeholder="Klasa"
+          type="text"
+          name="klasa"
           required
         />
       </div>
