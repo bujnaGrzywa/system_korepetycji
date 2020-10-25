@@ -51,6 +51,12 @@ const months = [
   { id: "12", name: "grudzień" },
 ];
 
+const categories = [
+  { id: 1, name: "matematyka" },
+  { id: 2, name: "fizyka" },
+  { id: 3, name: "chemia" },
+];
+
 const AddResource = ({ firebase, authUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -58,6 +64,7 @@ const AddResource = ({ firebase, authUser }) => {
     const title = data.get("title");
     const price = data.get("price");
     const description = data.get("description");
+    const category = data.get("category");
 
     const startDay = data.get("startDay");
     const startMonth = data.get("startMonth");
@@ -82,6 +89,7 @@ const AddResource = ({ firebase, authUser }) => {
       price,
       email,
       reserved_uid: null,
+      category,
     };
 
     firebase.selectBooksByUser(uid).push(book);
@@ -113,7 +121,7 @@ const AddResource = ({ firebase, authUser }) => {
       </div>
       <div className="mt-3">
         <div style={{ color: "#fff", padding: "0 0 10px 0" }}>
-          Ustaw termin początkowy
+          Ustaw termin początkowy:
         </div>
         <div className="select mr-2">
           <select className="select" name="startDay">
@@ -138,7 +146,7 @@ const AddResource = ({ firebase, authUser }) => {
 
       <div className="mt-3">
         <div style={{ color: "#fff", padding: "0 0 10px 0" }}>
-          Ustaw termin końcowy
+          Ustaw termin końcowy:
         </div>
         <div className="select mr-2">
           <select className="select" name="endDay">
@@ -155,6 +163,19 @@ const AddResource = ({ firebase, authUser }) => {
             {months.map((month) => (
               <option key={month.id} value={month.id}>
                 {month.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="mt-3">
+        <div style={{ color: "#fff", padding: "0 0 10px 0" }}>Przedmiot:</div>
+        <div className="select mr-2">
+          <select className="select" name="category">
+            {categories.map((category) => (
+              <option key={category.id} value={category.name}>
+                {category.name}
               </option>
             ))}
           </select>
