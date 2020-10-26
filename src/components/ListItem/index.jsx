@@ -8,8 +8,9 @@ const ListItem = ({ lesson, onHandle, label }) => {
           <div className="media">
             <div className="media-content">
               <p className="is-size-4 is-capitalized has-text-weight-semibold">
-                {lesson.title}
+                {lesson.type}
               </p>
+              <p className="is-size-6">Klasa: {lesson.group}</p>
               <p className="is-size-6">Kategoria: {lesson.category}</p>
               <p className="is-size-5">Cena: {lesson.price} PLN</p>
               <p className="is-size-6">

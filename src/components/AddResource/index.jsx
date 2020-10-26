@@ -51,20 +51,33 @@ const months = [
   { id: "12", name: "grudzień" },
 ];
 
+const groups = [
+  { id: 1, name: "1 pr" },
+  { id: 2, name: "1 in" },
+  { id: 3, name: "2 in" },
+  { id: 4, name: "3 in" },
+];
+
 const categories = [
   { id: 1, name: "matematyka" },
   { id: 2, name: "fizyka" },
   { id: 3, name: "chemia" },
 ];
 
+const types = [
+  { id: 1, name: "Udziele korepepetycji!" },
+  { id: 2, name: "Potrzebuje pomocy!" },
+];
+
 const AddResource = ({ firebase, authUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    const title = data.get("title");
+    const type = data.get("type");
     const price = data.get("price");
     const description = data.get("description");
     const category = data.get("category");
+    const group = data.get("group");
 
     const startDay = data.get("startDay");
     const startMonth = data.get("startMonth");
@@ -82,7 +95,7 @@ const AddResource = ({ firebase, authUser }) => {
     const lesson = {
       startDate,
       endDate,
-      title,
+      type,
       description,
       reserved: false,
       uid,
@@ -90,9 +103,11 @@ const AddResource = ({ firebase, authUser }) => {
       email,
       reserved_uid: null,
       category,
+      group,
     };
 
     firebase.selectLessonsByUser(uid).push(lesson);
+    alert("Ogłoszenie zostało dodane!");
 
     event.target.reset();
   };
@@ -102,13 +117,15 @@ const AddResource = ({ firebase, authUser }) => {
       <div>
         <div className="field">
           <div className="control">
-            <input
-              className="input"
-              placeholder="Tytuł"
-              type="text"
-              name="title"
-              required
-            />
+            <div className="select mr-2">
+              <select name="type">
+                {types.map((type) => (
+                  <option key={type.id} value={type.name}>
+                    {type.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
         <input
@@ -176,6 +193,19 @@ const AddResource = ({ firebase, authUser }) => {
             {categories.map((category) => (
               <option key={category.id} value={category.name}>
                 {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="mt-3">
+        <div style={{ color: "#fff", padding: "0 0 10px 0" }}>Klasa:</div>
+        <div className="select mr-2">
+          <select className="select" name="group">
+            {groups.map((group) => (
+              <option key={group.id} value={group.name}>
+                {group.name}
               </option>
             ))}
           </select>
